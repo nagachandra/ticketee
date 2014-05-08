@@ -22,6 +22,12 @@ before_action :set_ticket ,only: [:show,:edit,:update,:destroy]
 		end
 	end
 	
+	def destroy
+		@ticket.destroy
+		flash[:notice] = "Ticket has been deleted."
+		redirect_to @project
+	end
+	
 	
 	def create
 		@ticket = @project.tickets.build(ticket_params)
