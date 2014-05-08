@@ -4,12 +4,6 @@
 </div>
 
 
+<%= link_to "Edit Ticket", [:edit, @project ,@ticket] %>
 
-<ul id='tickets'>
-	<% @project.tickets.each do |ticket| %>
-	<li>
-		#<%= ticket.id %> -
-		<%= link_to ticket.title ,[@project,ticket] %>
-	</li>
-	<% end %>
-</ul>
+

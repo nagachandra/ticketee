@@ -7,6 +7,21 @@ before_action :set_ticket ,only: [:show,:edit,:update,:destroy]
 		@ticket = @project.tickets.build
 	end
 	
+	def edit
+		
+	end
+	
+	def update
+		if @ticket.update(ticket_params)
+			flash[:notice] = "Ticket has been updated."
+			redirect_to [@project,@ticket]
+		else
+		flash[:alert] = "Ticket has not been updated."
+		
+		render action: "edit"
+		end
+	end
+	
 	
 	def create
 		@ticket = @project.tickets.build(ticket_params)
