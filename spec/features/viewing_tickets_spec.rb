@@ -4,9 +4,13 @@ feature "Viewing tickets" do
 
 before do
 
+user = FactoryGirl.create(:user)
+
 textmate_2 = FactoryGirl.create(:project,name: "TextMate 2")
 
-FactoryGirl.create(:ticket,project: textmate_2, title: "Make it shiny!",description: "Gradients! starbursts! oh my!")
+ticket = FactoryGirl.create(:ticket,project: textmate_2, title: "Make it shiny!",description: "Gradients! starbursts! oh my!")
+
+ticket.update(user: user)
 
 internet_explorer = FactoryGirl.create(:project ,name: "Internet Explorer")
 
